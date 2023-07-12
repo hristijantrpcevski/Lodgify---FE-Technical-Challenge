@@ -63,7 +63,7 @@ const NameContainer = styled("div")<{ isAllChecked: boolean }>(
     display: "flex",
     gap: "10px",
     alignItems: "center",
-    color: isAllChecked ? theme.colors.green200 : theme.colors.gray300,
+    color: isAllChecked ? theme.colors.green200 : theme.colors.gray400,
   })
 );
 

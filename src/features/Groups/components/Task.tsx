@@ -29,5 +29,4 @@ const TaskContainer = styled("label")({
 
 const TaskName = styled("p")(({ theme }) => ({
   fontSize: "14px",
-  color: theme.colors.gray200,
 }));
