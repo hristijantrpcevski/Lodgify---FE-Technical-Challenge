@@ -7,22 +7,32 @@ import Group from "./components/Group";
 export default function Groups() {
   const { data: groups = [], isLoading } = useMockProgress();
 
-  if (isLoading) {
-    return <div>Loading....</div>;
-  }
-
   return (
-    <Container>
-      <Title />
-      <Progress />
-      <GroupsStyle>
-        {groups.map((group, index) => (
-          <Group key={`${group}-${index}`} group={group} />
-        ))}
-      </GroupsStyle>
-    </Container>
+    <Main>
+      {isLoading ? (
+        <div>Loading....</div>
+      ) : (
+        <Container>
+          <Title />
+          <Progress />
+          <GroupsStyle>
+            {groups.map((group, index) => (
+              <Group key={`${group}-${index}`} group={group} />
+            ))}
+          </GroupsStyle>
+        </Container>
+      )}
+    </Main>
   );
 }
+
+const Main = styled("div")({
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
 
 const Container = styled("div")(({ theme }) => ({
   width: "1000px",

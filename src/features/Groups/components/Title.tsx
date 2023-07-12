@@ -8,7 +8,7 @@ export default function Title() {
   );
 }
 
-const Container = styled("text")({
+const Container = styled("div")({
   width: "100%",
   paddingRight: "10px",
   paddingLeft: "10px",

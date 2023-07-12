@@ -3,6 +3,7 @@ import { useState } from "react";
 import Icon from "@/components/Icon";
 import { Group } from "@/services/ProgressService";
 import styled from "styled-components";
+import Task from "./Task";
 
 interface Props {
   group: Group;
@@ -25,16 +26,23 @@ export default function Group({ group }: Props) {
           </IconButton>
         </Action>
       </GroupContainer>
+      {show && (
+        <>
+          {group.tasks.map((task, index) => (
+            <Task key={index} task={task} />
+          ))}
+        </>
+      )}
     </Container>
   );
 }
 
 const Container = styled("div")(({ theme }) => ({
   borderBottom: `1px solid ${theme.colors.gray100}`,
-  height: "70px",
+  minHeight: "70px",
   padding: "20px",
   display: "flex",
-  alignItems: "center",
+  flexDirection: "column",
   width: "100%",
 
   "&:last-of-type": {

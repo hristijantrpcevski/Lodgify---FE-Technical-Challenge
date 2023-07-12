@@ -6,4 +6,6 @@ export default function Layout({ children }: React.PropsWithChildren) {
 
 const Main = styled("main")(() => ({
   width: "100%",
+  padding: "50px",
+  height: "calc(100vh-50px)",
 }));
