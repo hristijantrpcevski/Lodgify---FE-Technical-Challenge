@@ -1,14 +1,6 @@
 import useMockProgress from "@/hooks/useMockProgress";
 import { Group } from "@/services/ProgressService";
-import {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 interface Context {
   groups: Group[];
