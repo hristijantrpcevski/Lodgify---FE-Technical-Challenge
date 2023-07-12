@@ -1,12 +1,12 @@
 import axios from "axios";
 
-interface Task {
+export interface Task {
   description: string;
   value: number;
   checked: boolean;
 }
 
-interface Group {
+export interface Group {
   name: string;
   tasks: Task[];
 }

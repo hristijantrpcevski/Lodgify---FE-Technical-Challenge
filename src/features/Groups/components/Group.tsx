@@ -12,10 +12,12 @@ interface Props {
 export default function Group({ group }: Props) {
   const [show, setShow] = useState(false);
 
+  const isAllChecked = group.tasks.every(({ checked }) => checked);
+
   return (
     <Container>
       <GroupContainer>
-        <NameContainer>
+        <NameContainer isAllChecked={isAllChecked}>
           <Icon icon="regular:clipboard" fontSize={25} />
           <Name>{group.name}</Name>
         </NameContainer>
@@ -56,17 +58,18 @@ const GroupContainer = styled("div")({
   justifyContent: "space-between",
 });
 
-const NameContainer = styled("div")(({ theme }) => ({
-  display: "flex",
-  gap: "10px",
-  alignItems: "center",
-  color: theme.colors.gray300,
-}));
+const NameContainer = styled("div")<{ isAllChecked: boolean }>(
+  ({ theme, isAllChecked }) => ({
+    display: "flex",
+    gap: "10px",
+    alignItems: "center",
+    color: isAllChecked ? theme.colors.green200 : theme.colors.gray300,
+  })
+);
 
 const Name = styled("p")(({ theme }) => ({
   fontSize: "14px",
   fontWeight: 500,
-  color: theme.colors.gray400,
 }));
 
 const Text = styled("p")(({ theme }) => ({

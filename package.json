@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.1",
     "@iconify/icons-fluent": "^1.2.26",
     "@iconify/react": "^4.1.1",
     "@tanstack/react-query": "^4.29.19",

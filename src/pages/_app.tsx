@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider, StyleSheetManager } from "styled-components";
 import { createGlobalStyle } from "styled-components";
+import isPropValid from "@emotion/is-prop-valid";
 
 import Layout from "@/layout/Layout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -34,12 +35,14 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-        <GlobalStyle />
-      </ThemeProvider>
+      <StyleSheetManager shouldForwardProp={isPropValid}>
+        <ThemeProvider theme={theme}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+          <GlobalStyle />
+        </ThemeProvider>
+      </StyleSheetManager>
     </QueryClientProvider>
   );
 }

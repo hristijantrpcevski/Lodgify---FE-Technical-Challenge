@@ -3,6 +3,23 @@ import styled from "styled-components";
 import Title from "./components/Title";
 import Progress from "@/components/Progress";
 import Group from "./components/Group";
+import { type Group as GroupType } from "@/services/ProgressService";
+
+function calculateProgress(groups: GroupType[]) {
+  let sum = 0;
+  let progress = 0;
+
+  groups.forEach((group) =>
+    group.tasks.forEach((task) => {
+      sum = sum + task.value;
+      if (task.checked) {
+        progress = progress + task.value;
+      }
+    })
+  );
+
+  return (progress * 100) / sum;
+}
 
 export default function Groups() {
   const { data: groups = [], isLoading } = useMockProgress();
@@ -14,7 +31,7 @@ export default function Groups() {
       ) : (
         <Container>
           <Title />
-          <Progress />
+          <Progress progress={calculateProgress(groups)} />
           <GroupsStyle>
             {groups.map((group, index) => (
               <Group key={`${group}-${index}`} group={group} />
