@@ -1,16 +1,22 @@
 import Checkbox from "@/components/Checkbox";
+import useGroupsContext from "@/context/GroupsContext";
 import { Task } from "@/services/ProgressService";
 import styled from "styled-components";
 
 interface Props {
   task: Task;
+  id: string;
 }
 
-export default function Task({ task }: Props) {
+export default function Task({ task, id }: Props) {
+  const { setGroups } = useGroupsContext();
   return (
     <Container>
       <TaskContainer>
-        <Checkbox checked={task.checked} />
+        <Checkbox
+          checked={task.checked}
+          onChange={(e) => setGroups(e.target.checked, id)}
+        />
         <TaskName>{task.description}</TaskName>
       </TaskContainer>
     </Container>

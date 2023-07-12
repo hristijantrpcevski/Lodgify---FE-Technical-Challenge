@@ -1,28 +1,18 @@
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+
 import useMockProgress from "@/hooks/useMockProgress";
 import styled from "styled-components";
 import Title from "./components/Title";
 import Progress from "@/components/Progress";
 import Group from "./components/Group";
 import { type Group as GroupType } from "@/services/ProgressService";
+import { calculateProgress } from "@/utils/calculateProgress";
+import useGroupsContext from "@/context/GroupsContext";
 
-function calculateProgress(groups: GroupType[]) {
-  let sum = 0;
-  let progress = 0;
-
-  groups.forEach((group) =>
-    group.tasks.forEach((task) => {
-      sum = sum + task.value;
-      if (task.checked) {
-        progress = progress + task.value;
-      }
-    })
-  );
-
-  return (progress * 100) / sum;
-}
+export type SetGroups = Dispatch<SetStateAction<GroupType[]>>;
 
 export default function Groups() {
-  const { data: groups = [], isLoading } = useMockProgress();
+  const { isLoading, groups } = useGroupsContext();
 
   return (
     <Main>

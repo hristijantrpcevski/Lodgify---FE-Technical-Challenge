@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 interface Props {
   checked?: boolean;
-  onChange?(event?: React.ChangeEvent<HTMLInputElement>): void;
+  onChange?(event: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 export default function Checkbox(props: Props) {

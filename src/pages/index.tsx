@@ -1,5 +1,10 @@
+import { GroupsProvider } from "@/context/GroupsContext";
 import Groups from "@/features/Groups";
 
 export default function Home() {
-  return <Groups />;
+  return (
+    <GroupsProvider>
+      <Groups />
+    </GroupsProvider>
+  );
 }

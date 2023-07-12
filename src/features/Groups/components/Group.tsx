@@ -12,7 +12,7 @@ interface Props {
 export default function Group({ group }: Props) {
   const [show, setShow] = useState(false);
 
-  const isAllChecked = group.tasks.every(({ checked }) => checked);
+  const isAllChecked = !group.tasks.some(({ checked }) => !checked);
 
   return (
     <Container>
@@ -31,7 +31,11 @@ export default function Group({ group }: Props) {
       {show && (
         <>
           {group.tasks.map((task, index) => (
-            <Task key={index} task={task} />
+            <Task
+              key={index}
+              task={task}
+              id={`${group.name}-${task.description}-${index}`}
+            />
           ))}
         </>
       )}
