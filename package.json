@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iconify/icons-fluent": "^1.2.26",
+    "@iconify/react": "^4.1.1",
     "@tanstack/react-query": "^4.29.19",
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",

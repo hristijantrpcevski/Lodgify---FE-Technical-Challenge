@@ -10,9 +10,10 @@ export const theme: DefaultTheme = {
     green200: "#04b494",
 
     gray50: "#ebebeb", //* body background color
-    gray100: "#b2b2b2", //* border color
-    gray200: "#7c7c7c", //* Text color
-    gray300: "#404040", //* Title Color
+    gray100: "#dddddd", //* Groups border
+    gray200: "#b2b2b2", //* border color
+    gray300: "#7c7c7c", //* Text color
+    gray400: "#404040", //* Title Color
   },
 
   fonts: {

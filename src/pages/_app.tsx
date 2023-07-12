@@ -1,14 +1,12 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import { createGlobalStyle } from "styled-components";
-import { Inter } from "next/font/google";
 
 import Layout from "@/layout/Layout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 import { theme } from "@/styles/theme";
-
-const inter = Inter({ subsets: ["latin"] });
+import "@/icons";
 
 const GlobalStyle = createGlobalStyle`
   html,
