@@ -10,7 +10,7 @@ export default function Task({ task }: Props) {
   return (
     <Container>
       <TaskContainer>
-        <Checkbox />
+        <Checkbox checked={task.checked} />
         <TaskName>{task.description}</TaskName>
       </TaskContainer>
     </Container>
@@ -18,10 +18,10 @@ export default function Task({ task }: Props) {
 }
 
 const Container = styled("div")({
-  padding: "20px",
+  padding: "10px",
 });
 
-const TaskContainer = styled("div")({
+const TaskContainer = styled("label")({
   display: "flex",
   alignItems: "center",
   gap: "20px",
