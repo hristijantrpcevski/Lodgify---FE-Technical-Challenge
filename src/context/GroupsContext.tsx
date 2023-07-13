@@ -11,7 +11,7 @@ interface Context {
 const GroupsContext = createContext<Context>({
   groups: [],
   isLoading: false,
-  setGroups: (checked: boolean, id: string) => {},
+  setGroups: () => {},
 });
 
 export function GroupsProvider({ children }: React.PropsWithChildren<unknown>) {
