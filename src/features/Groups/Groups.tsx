@@ -9,8 +9,6 @@ import { type Group as GroupType } from "@/services/ProgressService";
 import { calculateProgress } from "@/utils/calculateProgress";
 import useGroupsContext from "@/context/GroupsContext";
 
-export type SetGroups = Dispatch<SetStateAction<GroupType[]>>;
-
 export default function Groups() {
   const { isLoading, groups } = useGroupsContext();
 
