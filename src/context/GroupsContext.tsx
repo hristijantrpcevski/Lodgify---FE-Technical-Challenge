@@ -15,15 +15,9 @@ const GroupsContext = createContext<Context>({
 });
 
 export function GroupsProvider({ children }: React.PropsWithChildren<unknown>) {
-  const { data: groups = [], isLoading, isSuccess } = useMockProgress();
-
   const [groupState, setGroups] = useState<Group[]>([]);
 
-  useEffect(() => {
-    if (isSuccess) {
-      setGroups(groups);
-    }
-  }, [groups, isSuccess]);
+  const { isLoading } = useMockProgress((groups) => setGroups(groups));
 
   const value = useMemo(
     () => ({
