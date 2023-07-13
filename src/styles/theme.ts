@@ -2,6 +2,7 @@ import { DefaultTheme } from "styled-components";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
+
 export const theme: DefaultTheme = {
   colors: {
     white: "#fff",
@@ -17,7 +18,6 @@ export const theme: DefaultTheme = {
   },
 
   fonts: {
-    inter: inter.style.fontFamily,
     body: inter.style.fontFamily,
   },
 };

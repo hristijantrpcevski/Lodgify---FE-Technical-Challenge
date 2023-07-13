@@ -31,6 +31,7 @@ const TaskContainer = styled("label")({
   display: "flex",
   alignItems: "center",
   gap: "20px",
+  cursor: "pointer",
 });
 
 const TaskName = styled("p")(({ theme }) => ({
